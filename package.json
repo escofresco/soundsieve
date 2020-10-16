@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/escofresco/soundsieve/issues"
   },
-  "homepage": "https://github.com/escofresco/soundsieve#readme"
+  "homepage": "https://github.com/escofresco/soundsieve#readme",
+  "devDependencies": {
+    "electron": "^10.1.3"
+  }
 }
