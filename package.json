@@ -1,0 +1,22 @@
+{
+  "name": "soundsieve",
+  "version": "1.0.0",
+  "description": "Source separation with minimal artifacts",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/escofresco/soundsieve.git"
+  },
+  "keywords": [
+    "Source-Separation"
+  ],
+  "author": "Jonasz & Samir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/escofresco/soundsieve/issues"
+  },
+  "homepage": "https://github.com/escofresco/soundsieve#readme"
+}
