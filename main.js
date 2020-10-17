@@ -1,3 +1,6 @@
+/*
+ * Entry point for Electron
+ */
 // Import the app and BrowserWindow modules of the electron package to be able
 // to manage application's lifecycle events, as well as create and control
 // browser windows.
