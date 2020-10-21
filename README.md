@@ -30,3 +30,7 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://raw.githubusercontent.com/escofresco/soundsieve/main/LICENSE)
+
+## Acknowledgements:
+
+Spleeter reference help from LyricWulf: https://github.com/LyricWulf/SpleeterBox
