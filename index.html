@@ -2,7 +2,7 @@
   This is the page you that is displayed once the application is initialized.
   This web page represents the Renderer process. (You can create multiple
   browser windows, where each window uses its own independent Renderer. Each
-  window can optionally be granted with full access to Node.js API through the 
+  window can optionally be granted with full access to Node.js API through the
   nodeIntegration preference.
 ------------------------------------------------------------------------------->
 <!DOCTYPE html>
@@ -17,5 +17,8 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <a href="#" id="drag">Drag me</a>
+    <button id="upload">Upload File</button> 
+    <script src="renderer.js"></script>
 </body>
 </html>

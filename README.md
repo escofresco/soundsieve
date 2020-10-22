@@ -16,6 +16,7 @@ git clone https://github.com/escofresco/soundsieve.git
 ## Getting Started
 
 ```bash
+npm install
 npm start
 ```
 

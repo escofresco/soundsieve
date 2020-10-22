@@ -4,7 +4,14 @@
 // Import the app and BrowserWindow modules of the electron package to be able
 // to manage application's lifecycle events, as well as create and control
 // browser windows.
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+
+ipcMain.on('ondragstart', (event, filePath) => {
+  event.sender.startDrag({
+    file: filePath,
+    icon: "Image from iOS.jpg"
+  })
+})
 
 function createWindow () {
   // After that, you define a function that creates a new browser window with
