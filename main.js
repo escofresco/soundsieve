@@ -4,7 +4,13 @@
 // Import the app and BrowserWindow modules of the electron package to be able
 // to manage application's lifecycle events, as well as create and control
 // browser windows.
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
+const fs = require('fs');
+const { COPYFILE_EXCL } = fs.constants;
+
+ipcMain.on('isDarkTheme', (event) => {
+  event.returnValue = nativeTheme.shouldUseDarkColors;
+})
 
 ipcMain.on('ondragstart', (event, filePath) => {
   event.sender.startDrag({
@@ -12,6 +18,23 @@ ipcMain.on('ondragstart', (event, filePath) => {
     icon: "Image from iOS.jpg"
   })
 })
+
+ipcMain.on('ondrop', (event, src) => {
+  fs.copyFile(src, 'destination.txt', COPYFILE_EXCL, (err) => {
+    if (err) throw err;
+    console.log('source.txt was copied to destination.txt');
+  });
+})
+
+ipcMain.on('ondragover', (e) => {
+})
+
+ipcMain.on('ondragenter', (event) => {
+})
+
+ipcMain.on('dragleave', (event) => {
+})
+
 
 function createWindow () {
   // After that, you define a function that creates a new browser window with
@@ -26,7 +49,7 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('src/index.html')
   win.webContents.openDevTools()
 }
 
