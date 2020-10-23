@@ -1,7 +1,41 @@
+/*
+ * +------------------------------------+
+ * |                                    |
+ * |           Frontend Logic           |
+ * |                                    |
+ * +------------------------------------+
+ */
 const { ipcRenderer, nativeTheme } = require('electron')
 const dragElm = document.getElementById('drag')
 const IS_DARK_THEME = ipcRenderer.sendSync('isDarkTheme');
+/*
+ * +---------------------+
+ * |                     |
+ * |       Senders       |
+ * |                     |
+ * +---------------------+
+ *
+ *  Source separation senders
+ * ==============================
+ */
+const separate = (filepath) => { ipcRenderer.send('separate', filepath) }
 
+/*
+ *  Drag senders
+ * =================
+ */
+const drop = (filepath) => { ipcRenderer.send('ondrop', fpath) }
+
+/*
+ * +---------------------+
+ * |                     |
+ * |      Listeners      |
+ * |                     |
+ * +---------------------+
+ *
+ *   Drag listeners
+ *  ===================
+ */
 dragElm.ondragstart = (event) => {
   event.preventDefault()
   ipcRenderer.send('ondragstart', '/Users/jonasz/Developer/projects/soundsieve/README.md')
@@ -17,7 +51,8 @@ document.ondrop = (event) => {
 		console.log('File Path of dragged files: ', f.path)
     fpath = f.path;
 	}
-  ipcRenderer.send('ondrop', fpath);
+  drop(fpath)
+  separate(fpath)
 };
 
 document.ondragover = (e) => {
@@ -32,8 +67,3 @@ document.ondragenter = (event) => {
 document.ondragleave = (event) => {
 	console.log('File has left the Drop Space');
 };
-
-ipcRenderer.on('isDarkThemeReceiver', (isDarkTheme) => {
-  if (isDarkTheme)
-    console.log("dark")
-})
